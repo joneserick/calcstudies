@@ -28,10 +28,22 @@ class CalcPresenterTest {
 
     @Test
     fun shouldDisplayNumberOnTheDisplay() {
-        val pressedNumber = "5"
+        val pressedNumber = "5.0"
         presenter.pressNumber(pressedNumber)
         verify(view).displayNumber(pressedNumber)
     }
 
+    @Test
+    fun shouldDisplayResult() {
+        val result = "120.0"
+        presenter.displayResult(result)
+        verify(view).displayResult(result)
+    }
+
+    @Test
+    fun shouldClearTheDisplay() {
+        presenter.clearDisplay()
+        verify(view).clearDisplay()
+    }
 
 }

@@ -7,4 +7,12 @@ class CalcPresenterImpl(private val view: CalcContract) : CalcPresenter {
     override fun pressNumber(pressedNumber: String) {
         view.displayNumber(pressedNumber)
     }
+
+    override fun displayResult(result: String) {
+        view.displayResult(result)
+    }
+
+    override fun clearDisplay() {
+        view.clearDisplay()
+    }
 }
