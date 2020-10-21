@@ -1,5 +1,6 @@
 package net.jones.calcstudies.presenters
 
+import net.jones.calcstudies.data.Operators
 import net.jones.calcstudies.ui.CalcContract
 
 class CalcPresenterImpl(private val view: CalcContract) : CalcPresenter {
@@ -14,5 +15,13 @@ class CalcPresenterImpl(private val view: CalcContract) : CalcPresenter {
 
     override fun clearDisplay() {
         view.clearDisplay()
+    }
+
+    override fun onClickClearButton() {
+        view.clearActualOperator()
+    }
+
+    override fun setActualOperator(actualOperator: Operators) {
+        view.setActualOperator(actualOperator)
     }
 }

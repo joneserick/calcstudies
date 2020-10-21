@@ -1,5 +1,6 @@
 package net.jones.calcstudies.test.presenters
 
+import net.jones.calcstudies.data.Operators
 import net.jones.calcstudies.presenters.CalcPresenter
 import net.jones.calcstudies.presenters.CalcPresenterImpl
 import net.jones.calcstudies.ui.CalcContract
@@ -41,9 +42,16 @@ class CalcPresenterTest {
     }
 
     @Test
-    fun shouldClearTheDisplay() {
-        presenter.clearDisplay()
-        verify(view).clearDisplay()
+    fun shouldClearTheActualOperator() {
+        presenter.onClickClearButton()
+        verify(view).clearActualOperator()
+    }
+
+    @Test
+    fun shouldSetSumAsOperator() {
+        val actualOperator = Operators.SUM
+        presenter.setActualOperator(actualOperator)
+        verify(view).setActualOperator(actualOperator)
     }
 
 }
