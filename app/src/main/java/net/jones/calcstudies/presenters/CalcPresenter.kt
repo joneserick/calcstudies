@@ -8,4 +8,5 @@ interface CalcPresenter {
     fun clearDisplay()
     fun onClickClearButton()
     fun setActualOperator(actualOperator: Operators)
+    fun runOperation(storedValue: Double, informedValue: Double, operator: Operators): Double
 }

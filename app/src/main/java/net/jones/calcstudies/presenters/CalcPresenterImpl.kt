@@ -5,6 +5,8 @@ import net.jones.calcstudies.ui.CalcContract
 
 class CalcPresenterImpl(private val view: CalcContract) : CalcPresenter {
 
+    val DEFAULT_NUMBER = 0.0
+
     override fun pressNumber(pressedNumber: String) {
         view.displayNumber(pressedNumber)
     }
@@ -23,5 +25,19 @@ class CalcPresenterImpl(private val view: CalcContract) : CalcPresenter {
 
     override fun setActualOperator(actualOperator: Operators) {
         view.setActualOperator(actualOperator)
+    }
+
+    override fun runOperation(
+        storedValue: Double,
+        informedValue: Double,
+        operator: Operators
+    ): Double {
+        return when(operator) {
+            Operators.SUM -> storedValue + informedValue
+            Operators.MULTIPLY -> storedValue * informedValue
+            Operators.DIVIDE ->  storedValue / informedValue
+            Operators.SUBTRACT -> storedValue - informedValue
+            else -> DEFAULT_NUMBER
+        }
     }
 }

@@ -54,4 +54,14 @@ class CalcPresenterTest {
         verify(view).setActualOperator(actualOperator)
     }
 
+    @Test
+    fun shouldSumValues() {
+        val storedValue = 12.0
+        val informedValue = 15.0
+        val operator = Operators.SUM
+        var result = 0.0
+        result = presenter.runOperation(storedValue, informedValue, operator)
+        Assert.assertEquals(27.0, result, 0.0)
+    }
+
 }
